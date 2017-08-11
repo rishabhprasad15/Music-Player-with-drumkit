@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Drumkit</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div class="mymenu ">
+<section class="welcome-screen1">
+
+            <div class="keys">
+               <div data-key="65" class="key">
+                <kbd>A</kbd>
+                 <span class="sound">clap</span>
+               </div>
+                <div data-key="83" class="key">
+                  <kbd>S</kbd>
+                  <span class="sound">hihat</span>
+                </div>
+                <div data-key="68" class="key">
+                  <kbd>D</kbd>
+                  <span class="sound">kick</span>
+                </div>
+                <div data-key="70" float="left" class="key">
+                  <kbd>F</kbd>
+                  <span class="sound">open</span>
+                </div>
+                <div data-key="71" class="key">
+                  <kbd>G</kbd>
+                  <span class="sound">boom</span>
+                </div>
+                <div data-key="72" class="key">
+                  <kbd>H</kbd>
+                  <span class="sound">ride</span>
+                </div>
+                <div data-key="74" class="key">
+                  <kbd>J</kbd>
+                  <span class="sound">snare</span>
+                </div>
+                <div data-key="75" class="key">
+                  <kbd>K</kbd>
+                  <span class="sound">tom</span>
+                </div>
+                <div data-key="76" class="key">
+                  <kbd>L</kbd>
+                  <span class="sound">tink</span>
+                </div>
+
+
+
+              </div>
+              <div class="drumplaylist ">
+                              <audio class="drumaudio" data-key="65" src="sounds/clap.wav"></audio>
+                              <audio class="drumaudio" data-key="83" src="sounds/hihat.wav"></audio>
+                              <audio class="drumaudio" data-key="68" src="sounds/kick.wav"></audio>
+                              <audio class="drumaudio" data-key="70" src="sounds/openhat.wav"></audio>
+                              <audio class="drumaudio" data-key="71" src="sounds/boom.wav"></audio>
+                              <audio class="drumaudio" data-key="72" src="sounds/ride.wav"></audio>
+                              <audio class="drumaudio" data-key="74" src="sounds/snare.wav"></audio>
+                              <audio class="drumaudio" data-key="75" src="sounds/tom.wav"></audio>
+                              <audio class="drumaudio" data-key="76" src="sounds/tink.wav"></audio>
+                            </div>
+
+              </div>
+              <script>
+                          function removeTransition(e) {
+                if (e.propertyName !== 'transform')
+                return;
+                e.target.classList.remove('playing');
+              }
+
+              function playSound(e) {
+                //  if (changemenu == 1)
+                //  {
+                const audio = document.querySelector(`.drumaudio[data-key="${e.keyCode}"]`);
+                const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+                if (!audio && input)
+                return;
+
+                key.classList.add('playing');
+                audio.currentTime = 0;
+                audio.play();
+              // }
+              }
+
+              const keys = Array.from(document.querySelectorAll('.key'));
+              keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+              window.addEventListener('keydown', playSound);
+
+
+              // $('.fa-signal').on('click',function() {
+              //    $('.fa-signal').toggleClass('disabled');
+              //       changemenu = 1 - changemenu;
+              //       console.log(changemenu);
+              //      if (changemenu == 1)
+              // {
+              //       $('.mymenu').removeClass('hidden');
+              //         $('.drumplaylist').removeClass('hidden');
+              //         $('.fa-repeat').addClass('disabled');
+              //           $('.fa-random').addClass('disabled');
+              //           $('.fa-step-backward').addClass('disabled');
+              //           $('.fa-step-forward').addClass('disabled');
+              //          $('.fa-caret-square-o-right').addClass('disabled');
+              //           $('.fa-caret-square-o-left').addClass('disabled');
+              //           $('.fa-play').addClass('disabled');
+              //           $('.fa-pause').addClass('disabled');
+              //           $('.content').addClass('hidden');
+              //
+              //     }
+              //       else
+              //       {
+              //         $('.content').removeClass('hidden');
+              //         $('.fa-step-backward').removeClass('disabled');
+              //         $('.fa-step-forward').removeClass('disabled');
+              //         $('.fa-caret-square-o-right').removeClass('disabled');
+              //          $('.fa-caret-square-o-left').removeClass('disabled');
+              //          $('.fa-play').removeClass('disabled');
+              //          $('.fa-pause').removeClass('disabled');
+              //            $('.drumplaylist').addClass('hidden');
+              //         $('.mymenu').addClass('hidden');
+              //       }
+              //    });
+                 </script>
+                 <script src="jquery.js"></script>
+                 <!-- <script src="tuna-min.js"></script>
+                 <script src="sound.js"></script> -->
+     <body>
+  <html>
